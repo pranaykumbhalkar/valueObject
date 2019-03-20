@@ -10,9 +10,27 @@
 	</parent>
 	<groupId>com.cropin.services</groupId>
 	<artifactId>valueobject</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>valueobject</name>
 	<description>This is maven repository for cropin value object</description>
+	<url>https://www.cropin.com</url>
+
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Pranay Kumbhalkar</name>
+			<email>pranay.k@cropin.com</email>
+			<organization>Cropin Technology</organization>
+			<organizationUrl>https://www.cropin.com</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -48,13 +66,26 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>5.0.0.RELEASE</version>
+			</extension>
+		</extensions>
 	</build>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>my-repo-bucket-snapshot</id>
+			<url>s3://api-dependencies</url>
+		</snapshotRepository>
+		<repository>
+			<id>my-repo-bucket-snapshot</id>
+			<url>s3://api-dependencies</url>
+		</repository>
+	</distributionManagement>
 
 </project>
